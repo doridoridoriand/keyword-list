@@ -19,7 +19,7 @@ class SQ_NAVER
   end
 
   def csv_saver(content)
-    CSV.open('keyword_naver.csv', 'wb') do |element|
+    CSV.open('./csv/keyword_naver.csv', 'wb') do |element|
       element << content
     end
   end

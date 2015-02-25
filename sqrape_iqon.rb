@@ -16,7 +16,7 @@ class SQ_IQON
   end
 
   def csv_saver(content)
-    CSV.open('keyword_iqon.csv', 'wb') do |stream|
+    CSV.open('./csv/keyword_iqon.csv', 'wb') do |stream|
       stream << content
     end
   end

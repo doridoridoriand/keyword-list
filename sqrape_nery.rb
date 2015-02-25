@@ -19,7 +19,7 @@ class SQ_MERY
   end
 
   def csv_saver(content)
-    CSV.open('keyword_mery.csv', 'wb') do |e|
+    CSV.open('./csv/keyword_mery.csv', 'wb') do |e|
       e << content
     end
   end

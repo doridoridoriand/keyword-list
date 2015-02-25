@@ -16,7 +16,7 @@ class SQ_ZOZO
   end
 
   def csv_saver(content)
-    CSV.open('keyword_zozo.csv', 'wb') do |element|
+    CSV.open('./csv/keyword_zozo.csv', 'wb') do |element|
       element << content
     end
   end
