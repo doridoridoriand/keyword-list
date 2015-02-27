@@ -3,9 +3,17 @@ require 'pp'
 
 class MERGE_CSV
   def gen_master_csv
-    pp load_csvs.count
+    arr = []
+    load_csvs.each do |item_element|
+      arr << item_element.split('/')
+    end
+    csv_saver(arr.flatten.compact.uniq)
+  end
+
+  def csv_saver(content)
+    pp content.count
     CSV.open('master_csv.csv', 'wb') do |data|
-      data << load_csvs
+      data << content
     end
   end
 
