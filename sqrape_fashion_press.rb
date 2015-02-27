@@ -11,13 +11,17 @@ class SQ_FP
   end
 
   def brand_name_picker
+    target_urls = ['http://www.fashion-press.net/brands/en',
+                   'http://www.fashion-press.net/brands/']
     array = []
     agent = Mechanize.new
-    source = agent.get('http://www.fashion-press.net/brands/')
-    source.search('//*[@id="brandlist"]/table').each do |data_element|
-      data_element.search('tr').search('td').search('ul').each do |element|
-        element.search('a').each do |item_name|
-          array << item_name.text
+    target_urls.each do |target_url|
+      source = agent.get(target_url)
+      source.search('//*[@id="brandlist"]/table').each do |data_element|
+        data_element.search('tr').search('td').search('ul').each do |element|
+          element.search('a').each do |item_name|
+            array << item_name.text
+          end
         end
       end
     end
