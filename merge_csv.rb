@@ -4,10 +4,14 @@ require 'pp'
 class MERGE_CSV
   def gen_master_csv
     arr = []
+    modified = []
     load_csvs.each do |item_element|
       arr << item_element.split('/')
     end
-    csv_saver(arr.flatten.compact.uniq)
+    arr.flatten.compact.uniq.each do |element_name|
+      modified << element_name.gsub(/"/, "")
+    end
+    csv_saver(modified)
   end
 
   def csv_saver(content)
